@@ -10,7 +10,6 @@ namespace Assets.Code.Hero
     {
         private void OnTriggerEnter2D(Collider2D collision)
         {
-
             if (collision.gameObject.tag == Tags.Base)
             {
                 Time.timeScale = 0;
