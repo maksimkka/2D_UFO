@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Code.Services.Effects.DoTween;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Code.HUD
 {
@@ -6,10 +8,12 @@ namespace Code.HUD
     {
         private static List<ScreenView> screens;
         private static ScreenType currentScreenType;
+        private static GameObject screen;
 
-        public static void Initialize(List<ScreenView> screenList)
+        public static void Initialize(List<ScreenView> screenList, GameObject screenService)
         {
             screens = screenList;
+            screen = screenService;
             HideAllScreens();
         }
 

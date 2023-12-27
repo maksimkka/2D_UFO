@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Code.Services.Effects.DoTween;
+using UnityEngine;
 
 namespace Code.HUD
 {
@@ -6,5 +7,10 @@ namespace Code.HUD
     public class ScreenView : MonoBehaviour
     {
         [field: SerializeField] public ScreenType type { get; private set; }
+
+        private void OnEnable()
+        {
+            DoTweenEffectsLibrary.DoBounceRectTransform(transform);
+        }
     }
 }

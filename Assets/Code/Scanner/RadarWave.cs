@@ -40,12 +40,22 @@ namespace Assets.Code.Scanner
         {
             if (collision.gameObject.tag == Tags.Ground)
             {
-                Debug.Log("2222222222222");
-                collision.gameObject.SetActive(false);
+                collision.gameObject.GetComponent<GroundBorder>().BorderMaterial.gameObject.SetActive(true);
                 //Destroy(collision.gameObject);
                 //Time.timeScale = 0;
                 //ScreenSwitcher.ShowScreen(ScreenType.LoseScreen);
             }
         }
+
+        //private void OnTriggerExit2D(Collider2D collision)
+        //{
+        //    if (collision.gameObject.tag == Tags.Ground)
+        //    {
+        //        collision.gameObject.GetComponent<GroundBorder>().BorderMaterial.gameObject.SetActive(false);
+        //        //Destroy(collision.gameObject);
+        //        //Time.timeScale = 0;
+        //        //ScreenSwitcher.ShowScreen(ScreenType.LoseScreen);
+        //    }
+        //}
     }
 }

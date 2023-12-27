@@ -7,12 +7,11 @@ namespace Code.Main
     {
         [SerializeField]
         private ScreenService screenService;
-        
 
         private void Awake()
         {
             Time.timeScale = 0;
-            ScreenSwitcher.Initialize(screenService.screens);
+            ScreenSwitcher.Initialize(screenService.screens, screenService.gameObject);
             ScreenSwitcher.ShowScreen(ScreenType.Menu);
         }
     }

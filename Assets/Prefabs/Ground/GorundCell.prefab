@@ -178,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6254331140666372254}
   - component: {fileID: 4578812609252203955}
+  - component: {fileID: 9099070275127037198}
   m_Layer: 0
   m_Name: GorundCell
   m_TagString: Ground
@@ -248,6 +249,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.022448, y: 1.0202066}
   m_EdgeRadius: 0
+--- !u!114 &9099070275127037198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071799633814629979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f77ff8d462d5d5749bfb6ef75625a260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <BorderMaterial>k__BackingField: {fileID: 5702389358415732033}
 --- !u!1 &6008551724199443577
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +273,7 @@ GameObject:
   - component: {fileID: 2343003328407525685}
   - component: {fileID: 5702389358415732033}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -300,7 +314,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
