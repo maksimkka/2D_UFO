@@ -10,5 +10,6 @@ namespace Assets.Code.Constants
     {
         public const string Base = "Base";
         public const string Ground = "Ground";
+        public const string Collectable = "Collectable";
     }
 }

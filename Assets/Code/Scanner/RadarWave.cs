@@ -26,36 +26,21 @@ namespace Assets.Code.Scanner
             }
         }
 
-        //private void OnTriggerStay2D(Collider2D collision)
-        //{
-        //    Debug.Log("111111111111111");
-        //    if (collision.gameObject.tag == Tags.Ground)
-        //    {
-        //        Debug.Log("2222222222222");
-        //        Destroy(collision.gameObject);
-        //    }
-        //}
-
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.gameObject.tag == Tags.Ground)
             {
-                collision.gameObject.GetComponent<GroundBorder>().BorderMaterial.gameObject.SetActive(true);
-                //Destroy(collision.gameObject);
-                //Time.timeScale = 0;
-                //ScreenSwitcher.ShowScreen(ScreenType.LoseScreen);
+                var groundBorder = collision.gameObject.GetComponent<GroundBorder>();
+                groundBorder.BorderMaterial.gameObject.SetActive(true);
+                groundBorder.DisableBorder();
+            }
+
+            if(collision.gameObject.tag == Tags.Collectable)
+            {
+                var collectableBorder = collision.gameObject.GetComponent<GroundBorder>();
+                collectableBorder.BorderMaterial.gameObject.SetActive(true);
+                collectableBorder.DisableBorder();
             }
         }
-
-        //private void OnTriggerExit2D(Collider2D collision)
-        //{
-        //    if (collision.gameObject.tag == Tags.Ground)
-        //    {
-        //        collision.gameObject.GetComponent<GroundBorder>().BorderMaterial.gameObject.SetActive(false);
-        //        //Destroy(collision.gameObject);
-        //        //Time.timeScale = 0;
-        //        //ScreenSwitcher.ShowScreen(ScreenType.LoseScreen);
-        //    }
-        //}
     }
 }

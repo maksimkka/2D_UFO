@@ -62,6 +62,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ItemCollector"",
+                    ""type"": ""Button"",
+                    ""id"": ""e362c5f1-4a1d-46cf-8491-9cb13de552dd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""LaunchWave"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""34824047-be89-4786-bf90-6e96eaa96454"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ItemCollector"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +184,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_MousePosition = m_Player.FindAction("MousePosition", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_LaunchWave = m_Player.FindAction("LaunchWave", throwIfNotFound: true);
+        m_Player_ItemCollector = m_Player.FindAction("ItemCollector", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -229,6 +250,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MousePosition;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_LaunchWave;
+    private readonly InputAction m_Player_ItemCollector;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -237,6 +259,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @MousePosition => m_Wrapper.m_Player_MousePosition;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @LaunchWave => m_Wrapper.m_Player_LaunchWave;
+        public InputAction @ItemCollector => m_Wrapper.m_Player_ItemCollector;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -258,6 +281,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @LaunchWave.started += instance.OnLaunchWave;
             @LaunchWave.performed += instance.OnLaunchWave;
             @LaunchWave.canceled += instance.OnLaunchWave;
+            @ItemCollector.started += instance.OnItemCollector;
+            @ItemCollector.performed += instance.OnItemCollector;
+            @ItemCollector.canceled += instance.OnItemCollector;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -274,6 +300,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @LaunchWave.started -= instance.OnLaunchWave;
             @LaunchWave.performed -= instance.OnLaunchWave;
             @LaunchWave.canceled -= instance.OnLaunchWave;
+            @ItemCollector.started -= instance.OnItemCollector;
+            @ItemCollector.performed -= instance.OnItemCollector;
+            @ItemCollector.canceled -= instance.OnItemCollector;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -297,5 +326,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMousePosition(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnLaunchWave(InputAction.CallbackContext context);
+        void OnItemCollector(InputAction.CallbackContext context);
     }
 }

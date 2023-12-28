@@ -1,6 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using JetBrains.Annotations;
 using System;
 using UnityEngine;
 
@@ -8,35 +7,14 @@ namespace Code.Services.Effects.DoTween
 {
     public static class DoTweenEffectsLibrary
     {
-        public static Tweener DoSimpleBounce(this Transform transform, float duration = 0.3f, float target = 0.75f,
+        public static Tweener DoSimpleBounce(this Transform transform, float duration = 0.8f, float target = 0.75f,
             Ease ease = Ease.OutElastic)
         {
-            return transform.DOScale(Vector3.one * target, duration)
-                .From()
-                .SetEase(ease);
-        }
-
-        public static Tweener DoBounceRectTransform(this Transform transform, float duration = 0.3f, float targer = 0.75f,
-            Ease ease = Ease.OutElastic)
-        {
-            var rectTransform = transform.GetComponent<RectTransform>();
-            return rectTransform.DOSizeDelta(new Vector2(1.4f, 1.4f) * targer, duration)
+            return transform.DOScale(new Vector2(2, 2) * target, duration)
                 .From()
                 .SetEase(ease)
-                .SetLoops(-1, LoopType.Yoyo);
+                .SetUpdate(true);
         }
-
-        //public static async UniTask<Tweener> DoSimpleBounce(this Transform transform, float duration = 0.3f, float target = 0.75f,
-        //    Ease ease = Ease.OutElastic)
-        //{
-
-        //    await UniTask.Delay(TimeSpan.FromSeconds(0.4f));
-        //    var tweener = transform.DOScale(Vector3.one * target, duration)
-        //        .From()
-        //        .SetEase(ease);
-
-        //    return tweener;
-        //}
 
         public static Tweener DoPulse(this Transform transform, float duration = 1f, float target = 1.5f, 
             Ease ease = Ease.Linear)

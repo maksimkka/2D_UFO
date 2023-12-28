@@ -10,7 +10,7 @@ namespace Code.HUD
 
         private void OnEnable()
         {
-            DoTweenEffectsLibrary.DoBounceRectTransform(transform);
+            DoTweenEffectsLibrary.DoSimpleBounce(transform);
         }
     }
 }

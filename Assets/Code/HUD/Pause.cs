@@ -39,15 +39,15 @@ namespace Code.HUD
 
 		private void PauseGame()
 		{
-			Time.timeScale = 0;
-			Cursor.lockState = CursorLockMode.Confined;
 			ScreenSwitcher.ShowScreen(ScreenType.Pause);
+			Time.timeScale = 0;
+			//Cursor.lockState = CursorLockMode.Confined;
 		}
 
 		private void UnPauseGame()
 		{
 			Time.timeScale = 1;
-			Cursor.lockState = CursorLockMode.Locked;
+			//Cursor.lockState = CursorLockMode.Locked;
 			ScreenSwitcher.ShowScreen(ScreenType.Game);
 		}
 	}

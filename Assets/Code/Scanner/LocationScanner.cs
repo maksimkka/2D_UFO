@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Assets.Code.Scanner
@@ -45,6 +40,7 @@ namespace Assets.Code.Scanner
             if(currentCoolDown >= cooldown)
             {
                 isReadyLaunchWave = true;
+                currentCoolDown = 0;
             }
         }
 
