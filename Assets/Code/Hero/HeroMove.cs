@@ -6,7 +6,6 @@ public class HeroMove : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private Rigidbody2D herorigidbody2D;
-    //[SerializeField] private HeroCollision heroCollision;
     [SerializeField] private GroundChecker groundChecker;
     private Camera camera;
     private Controls controls;
